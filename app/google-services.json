@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "81573786298",
+    "firebase_url": "https://to-do-app-34beb.firebaseio.com",
+    "project_id": "to-do-app-34beb",
+    "storage_bucket": "to-do-app-34beb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:81573786298:android:acb3b2c1c14f9370",
+        "android_client_info": {
+          "package_name": "com.shinejoseph.to_doapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "81573786298-sgsdc1thmkd8der3sqahoslhc8ovsb82.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shinejoseph.to_doapp",
+            "certificate_hash": "f5887ae83109ede72f4ec2666bca71db51683dd5"
+          }
+        },
+        {
+          "client_id": "81573786298-qgkd6ng6qojjqd09q6mpd9j4l3fr58o1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0xMj1SH2HN41dUlOqRHwQnJnJvAOqOM8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "81573786298-qgkd6ng6qojjqd09q6mpd9j4l3fr58o1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
