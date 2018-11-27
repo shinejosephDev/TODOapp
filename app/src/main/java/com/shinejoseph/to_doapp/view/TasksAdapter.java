@@ -77,9 +77,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
         void onLongTap(int position);
 
         void onCheckBoxTap(int position, boolean isCompeted);
-
-        void onTap(int position);
-    }
+        }
 
     class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvTask;

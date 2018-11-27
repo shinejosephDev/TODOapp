@@ -63,7 +63,8 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Task
         mPref = new Preferences(this);
 
         mTasksAdapter = new TasksAdapter(mTasksList, this);
-        mRvTasks.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        mRvTasks.setLayoutManager(linearLayoutManager);
         mRvTasks.setAdapter(mTasksAdapter);
 
         if (!mPref.getName().equals(""))
@@ -77,11 +78,10 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Task
         mTaskViewModel.getTasks().observe(this, taskEntities -> {
             if (taskEntities.size() > 0) {
                 mtvEmpty.setVisibility(View.GONE);
-                System.out.println("Data changed");
-                System.out.println("taskEntities = " + taskEntities.size());
                 mTasksList.clear();
                 mTasksList.addAll(taskEntities);
                 mTasksAdapter.notifyDataSetChanged();
+                mRvTasks.scrollToPosition(mTasksList.size() - 1);
             } else {
                 mTasksList.clear();
                 mTasksAdapter.notifyDataSetChanged();
@@ -106,7 +106,6 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Task
         });
 
         alert.setNegativeButton("CANCEL", (dialog, whichButton) -> {
-            // what ever you want to do with No option.
         });
 
         alert.show();
@@ -131,14 +130,10 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Task
         mTaskViewModel.updateTask(taskEntity);
     }
 
-    @Override
-    public void onTap(int position) {
-
-    }
 
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-        mode.getMenuInflater().inflate(R.menu.menu_task_long, menu);//Inflate the menu over action mode
+        mode.getMenuInflater().inflate(R.menu.menu_task_long, menu);
         return true;
     }
 
@@ -169,21 +164,16 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Task
         alert.setTitle("Edit task");
         alert.setView(edittext);
         edittext.setText(taskEntity.getTask_name());
-        alert.setPositiveButton("ADD", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                String taskName = edittext.getText().toString();
-                TaskEntity task = new TaskEntity();
-                task.setId(taskEntity.getId());
-                task.setTask_name(taskName);
-                task.setIs_completed(taskEntity.isIs_completed());
-                mTaskViewModel.updateTask(task);
-            }
+        alert.setPositiveButton("ADD", (dialog, whichButton) -> {
+            String taskName = edittext.getText().toString();
+            TaskEntity task = new TaskEntity();
+            task.setId(taskEntity.getId());
+            task.setTask_name(taskName);
+            task.setIs_completed(taskEntity.isIs_completed());
+            mTaskViewModel.updateTask(task);
         });
 
-        alert.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                // what ever you want to do with No option.
-            }
+        alert.setNegativeButton("CANCEL", (dialog, whichButton) -> {
         });
 
         alert.show();

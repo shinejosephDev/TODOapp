@@ -24,7 +24,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class LoginActivity extends AppCompatActivity {
-
     private static final String TAG = LoginActivity.class.getName();
     private static final int RC_SIGN_IN = 11000;
     private GoogleSignInClient mGoogleSignInClient;
@@ -67,7 +66,6 @@ public class LoginActivity extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-
         mSignInButton.setSize(SignInButton.SIZE_STANDARD);
         mSignInButton.setOnClickListener(v -> signIn());
 
@@ -76,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void signInGuest() {
         if (mEtGuestName.getText().toString().equals("")) {
-            Snackbar.make(findViewById(R.id.base), "Please enter your name", Snackbar.LENGTH_LONG)
+            Snackbar.make(findViewById(R.id.base), getString(R.string.enter_name), Snackbar.LENGTH_LONG)
                     .show();
             return;
         }

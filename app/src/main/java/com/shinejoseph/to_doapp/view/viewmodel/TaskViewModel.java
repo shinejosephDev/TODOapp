@@ -51,7 +51,7 @@ public class TaskViewModel extends AndroidViewModel {
 
         TaskEntity taskEntity;
 
-        public InsertAsync(TaskEntity taskEntity) {
+        InsertAsync(TaskEntity taskEntity) {
             this.taskEntity = taskEntity;
         }
 
@@ -66,7 +66,7 @@ public class TaskViewModel extends AndroidViewModel {
 
         TaskEntity taskEntity;
 
-        public DeleteAsync(TaskEntity taskEntity) {
+        DeleteAsync(TaskEntity taskEntity) {
             this.taskEntity = taskEntity;
         }
 
@@ -81,7 +81,7 @@ public class TaskViewModel extends AndroidViewModel {
 
         TaskEntity taskEntity;
 
-        public UpdateAsync(TaskEntity taskEntity) {
+        UpdateAsync(TaskEntity taskEntity) {
             this.taskEntity = taskEntity;
         }
 
